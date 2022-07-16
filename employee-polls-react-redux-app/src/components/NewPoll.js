@@ -1,71 +1,44 @@
 // @ts-nocheck
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { handleAddQuestion } from '../actions/questions';
 import Authenticate from './Authenticate';
 
 const NewPoll = ({ dispatch, authedUser }) => {
   console.log(`NewPoll - user: ${authedUser}`);
-  const navigate = useNavigate();
 
   const [optionOne, setOptionOne] = useState('');
   const [optionTwo, setOptionTwo] = useState('');
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
 
+  useEffect(() => {
+    console.log({ success, error });
+  }, [success, error]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(`Handle Submit - optionOne ${optionOne}`);
     console.log(`Handle Submit - optionTwo ${optionTwo}`);
 
-    const question = {
-      optionOneText: optionOne,
-      optionTwoText: optionTwo,
-    };
-
-    try {
+    if (optionOne !== '' && optionTwo !== '') {
+      const question = {
+        optionOneText: optionOne,
+        optionTwoText: optionTwo,
+      };
       dispatch(handleAddQuestion(question));
       console.log(`Dispatch - handleAddQuestion - Success`);
       setSuccess(true);
       setError(false);
-    } catch (e) {
+    } else {
       console.log(`Dispatch - handleAddQuestion - Error`);
       setSuccess(false);
       setError(true);
     }
 
-    // dispatch(handleAddQuestion(question))
-    //   .then((x) => {
-    //     console.log(`X: ${x}`);
-    //     if (!x) {
-    //       console.log(`Before Success - ${success}`);
-    //       console.log(`Before Error - ${error}`);
-    //       console.log(`Setting success to false`);
-    //       console.log(`Setting error to true`);
-    //       setSuccess(false);
-    //       setError(true);
-    //       console.log(`After Success - ${success}`);
-    //       console.log(`After Error - ${error}`);
-    //     } else {
-    //       console.log(`Setting success to true`);
-    //       console.log(`Setting error to false`);
-    //       console.log(`Before Success - ${success}`);
-    //       console.log(`Before Error - ${error}`);
-    //       setSuccess(true);
-    //       setError(false);
-    //       console.log(`After Success - ${success}`);
-    //       console.log(`After Error - ${error}`);
-    //     }
-    //   })
-    //   .catch(() => {
-    //     console.log(`Dispatch - handleAddQuestion - Error`);
-    //   });
-
     setOptionOne('');
     setOptionTwo('');
-    navigate('/');
   };
 
   const handleChangeOptionOne = (e) => {
@@ -102,6 +75,7 @@ const NewPoll = ({ dispatch, authedUser }) => {
             onChange={handleChangeOptionOne}
             value={optionOne}
             name="optionOneValue"
+            disabled={success}
           ></input>
         </label>
         <label className="selection-two-label" htmlFor="optionTwoValue">
@@ -112,9 +86,10 @@ const NewPoll = ({ dispatch, authedUser }) => {
             onChange={handleChangeOptionTwo}
             value={optionTwo}
             name="optionTwoValue"
+            disabled={success}
           ></input>
         </label>
-        <button data-testid="submit-button" type="submit" onClick={handleSubmit}>
+        <button disabled={success} data-testid="submit-button" type="submit" onClick={handleSubmit}>
           Submit
         </button>
       </form>

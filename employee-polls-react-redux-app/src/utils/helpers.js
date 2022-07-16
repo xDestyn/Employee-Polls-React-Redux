@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import avatar from '../static/avatar.png';
 
 export const formatDate = (timestamp) => {
   const date = new Date(timestamp);
@@ -59,7 +60,7 @@ export const formatPoll = (question, author, authedUser) => {
     id,
     timestamp,
     name: author.name,
-    avatarURL: author.avatarURL,
+    avatarURL: author.avatarURL ?? avatar,
     optionOneText,
     optionTwoText,
     hasAnswered,

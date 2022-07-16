@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../utils/helpers';
 import Authenticate from './Authenticate';
+import avatar from '../static/avatar.png';
 
 export const PollPreview = ({ question, user, id }) => {
   console.log(`PollPreview - question: ${JSON.stringify(question)}`);
@@ -13,7 +14,7 @@ export const PollPreview = ({ question, user, id }) => {
     <div className="poll-preview-container">
       <Authenticate />
       <div>
-        <img alt="" className="user-avatar" src={'/static/avatar.png'} />
+        <img alt="" className="user-avatar" src={avatar} />
         <span className="user">{user.name}</span>
       </div>
       <div>

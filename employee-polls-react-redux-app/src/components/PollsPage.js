@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { handleAnswer } from '../actions/questions';
 import { formatPoll, withRouter } from '../utils/helpers';
 import Authenticate from './Authenticate';
+import avatar from '../static/avatar.png';
 
 const PollsPage = ({ question, dispatch, id }) => {
   console.log(`PollsPage - question: ${question}`);
@@ -46,7 +47,7 @@ const PollsPage = ({ question, dispatch, id }) => {
     <div className="polls-option-div">
       <Authenticate />
       <div>
-        <img alt="user-avatar" className="user-avatar" src={avatarURL} />
+        <img alt="user-avatar" className="user-avatar" src={avatarURL ?? avatar} />
         <h2>{name} asks</h2>
       </div>
       <div>

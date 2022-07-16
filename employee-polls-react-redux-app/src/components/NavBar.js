@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logoutAuthedUser } from '../actions/authedUser';
+import avatar from '../static/avatar.png';
 
 const NavBar = ({ user, authedUser, dispatch }) => {
   console.log(`NavBar - user: ${JSON.stringify(user)}`);
@@ -9,7 +10,7 @@ const NavBar = ({ user, authedUser, dispatch }) => {
   console.log(`NavBar - dispatch: ${dispatch}`);
 
   const name = user?.name ?? '';
-  const avatar = user?.avatarURL ?? '';
+  const avatarURL = user?.avatarURL ?? avatar;
 
   const handleClick = () => {
     console.log('Before dispatch(logoutAuthedUser())');
@@ -32,7 +33,7 @@ const NavBar = ({ user, authedUser, dispatch }) => {
         {authedUser && (
           <li className="user-data">
             <div className="user-nav">
-              <img src={avatar} alt={`${authedUser}`} className="user-avatar" />
+              <img src={avatarURL} alt={`${authedUser}`} className="user-avatar" />
               <span>{name}</span>
             </div>
           </li>

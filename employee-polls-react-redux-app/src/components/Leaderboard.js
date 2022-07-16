@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Authenticate from './Authenticate';
+import avatar from '../static/avatar.png';
 
 const Leaderboard = ({ users }) => {
   const rankUsers = users.sort((a, b) => b.totalScore - a.totalScore);
@@ -23,7 +24,7 @@ const Leaderboard = ({ users }) => {
             return (
               <tr key={user.id}>
                 <td>
-                  <img alt="avatar" className="avatar" src={`${user.avatarURL}`} />
+                  <img alt="avatar" className="avatar" src={`${user.avatarURL ?? avatar}`} />
                   <span>{user.name}</span>
                 </td>
                 <td>
