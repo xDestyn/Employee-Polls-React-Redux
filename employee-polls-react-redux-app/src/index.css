@@ -1,13 +1,249 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+  color: #252525;
+}
+
+a {
+  text-decoration: none;
+  color: #252525;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.nav {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+  margin-top: 0px;
+}
+
+.nav ul li:nth-child(4) {
+  margin-left: auto;
+}
+
+.nav-user {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav div span {
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+.nav img {
+  border-radius: 360px;
+  width: 45px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  height: 50px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.new-poll-div {
+  text-align: center;
+}
+
+.new-poll-div label {
+  font-weight: bold;
+}
+
+.new-poll-div label input {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.new-poll-div button {
+  width: 150px;
+  height: 30px;
+  background-color: #1e9eeb;
+  border: 0px;
+  color: white;
+  font-size: 10px;
+  text-transform: uppercase;
+  border-radius: 15px;
+  font-weight: 100;
+  transition: background-color 0.3s;
+}
+.new-poll-div button:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.polls-option-div button {
+  width: 250px;
+  font-weight: bold;
+  margin: 20px;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+  background-color: #1e9eeb;
+  border: 0px;
+  color: white;
+  font-size: 14px;
+  border-radius: 15px;
+  transition: background-color 0.3s;
+}
+
+.user-avatar {
+  width: 150px;
+  border-radius: 360px;
+}
+
+.answered-question-poll-div span {
+  width: 100%;
+  display: block;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.percentage-poll-div {
+  display: flex;
+  padding-bottom: 20px;
+  align-items: center;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.percentage-poll-option-one {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.percentage-poll-option-two {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.poll-preview-container {
+  width: fit-content;
+  float: left;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #c3bdbd47;
+  min-width: 184px;
+  border-radius: 1px;
+  background-color: #efefef;
+  max-width: 400px;
+  height: 200px;
+  text-align: center;
+}
+
+.poll-preview-container div {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+}
+
+.poll-preview-container a {
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+.poll-preview-container div button {
+  text-align: center;
+  margin: 0 auto;
+  display: inline-block;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  background-color: #1e9eeb;
+  border: 0px;
+  color: white;
+  transition: background-color 0.4s;
+}
+
+.poll-preview-container div button:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+table {
+  margin: auto;
+  width: 100%;
+}
+
+td:first-child {
+  display: flex;
+  align-items: center;
+}
+
+th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.09);
+}
+
+td,
+th {
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.timestamp {
+  font-weight: 100;
+  font-size: 12px;
+  text-align: center;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.logout {
+  cursor: pointer;
+}
+
+.logout span {
+  font-weight: lighter !important;
 }

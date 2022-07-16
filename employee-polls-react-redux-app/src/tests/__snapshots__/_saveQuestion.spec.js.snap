@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`_saveQuestion should return error when incorrect arguments are received 1`] = `"Please provide optionOneText, optionTwoText, and author"`;
+
+exports[`_saveQuestion should return formatted object when correct arguments are received 1`] = `
+Object {
+  "author": "jsmith",
+  "id": Any<String>,
+  "optionOne": Object {
+    "text": "A",
+    "votes": Array [],
+  },
+  "optionTwo": Object {
+    "text": "B",
+    "votes": Array [],
+  },
+  "timestamp": Any<Number>,
+}
+`;

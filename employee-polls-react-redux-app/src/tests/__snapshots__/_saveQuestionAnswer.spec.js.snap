@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`_saveQuestionAnswer should return an error if incorrect arguments are received 1`] = `"Please provide authedUser, qid, and answer"`;
