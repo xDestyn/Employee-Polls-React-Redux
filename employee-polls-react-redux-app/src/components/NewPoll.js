@@ -1,21 +1,19 @@
 // @ts-nocheck
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { handleAddQuestion } from '../actions/questions';
+import { useNavigate } from 'react-router-dom';
 import Authenticate from './Authenticate';
 
 const NewPoll = ({ dispatch, authedUser }) => {
   console.log(`NewPoll - user: ${authedUser}`);
+  let navigate = useNavigate();
 
   const [optionOne, setOptionOne] = useState('');
   const [optionTwo, setOptionTwo] = useState('');
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-
-  useEffect(() => {
-    console.log({ success, error });
-  }, [success, error]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,6 +37,10 @@ const NewPoll = ({ dispatch, authedUser }) => {
 
     setOptionOne('');
     setOptionTwo('');
+
+    setTimeout(function () {}, 5000);
+
+    navigate('/');
   };
 
   const handleChangeOptionOne = (e) => {
